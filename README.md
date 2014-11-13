@@ -1,7 +1,7 @@
 LuaBridge classes article code.
 ==================
 
-The tutorial can be found there: 
+The tutorial can be found there: http://eliasdaler.wordpress.com/2014/11/01/using-lua-with-c-luabridge-part-2-using-scripts-for-object-behaviour/
 
 This code uses zlib license. 
 
