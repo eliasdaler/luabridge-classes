@@ -12,7 +12,6 @@ void Character::loadScript(luabridge::lua_State* L, const std::string& scriptFil
     if (luaL_dofile(L, scriptFilename.c_str()) == 0) {
         LuaRef table = getGlobal(L, tableName.c_str());
         if (table.isTable()) {
-            name = table["name"].cast<std::string>();
             if (table["name"].isString()) {
                 name = table["name"].cast<std::string>();
             } else {
