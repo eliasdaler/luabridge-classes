@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <string>
 #include <LuaBridge.h>
 
@@ -16,5 +17,5 @@ public:
     void interact(Player* player);
 protected:
     std::string name;
-    luabridge::LuaRef* interactFunc;
+    std::shared_ptr<luabridge::LuaRef> interactFunc;
 };

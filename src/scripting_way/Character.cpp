@@ -1,12 +1,10 @@
 #include "Character.h"
 #include <iostream>
 
-Character::Character() {
-    interactFunc = nullptr;
+Character::Character() : interactFunc(nullptr) {
 }
 
 Character::~Character() {
-    delete interactFunc;
 }
 
 void Character::loadScript(luabridge::lua_State* L, const std::string& scriptFilename, const std::string& tableName) {
@@ -22,9 +20,9 @@ void Character::loadScript(luabridge::lua_State* L, const std::string& scriptFil
             }
 
             if (table["interact"].isFunction()) {
-                interactFunc = new LuaRef(table["interact"]);
+                interactFunc = std::make_shared<LuaRef>(table["interact"]);
             } else {
-                interactFunc = nullptr;
+                interactFunc.reset();
             }
         }
     } else {
